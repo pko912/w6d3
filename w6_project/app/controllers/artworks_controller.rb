@@ -16,6 +16,7 @@ class ArtworksController < ApplicationController
             render json: @artwork, status: :created
         else
             render json: @artwork.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     def update
@@ -24,6 +25,7 @@ class ArtworksController < ApplicationController
             render json: @artwork
         else
             render json: @artwork.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     def destroy
@@ -35,6 +37,6 @@ class ArtworksController < ApplicationController
     private
 
     def artwork_params
-        params.recquire(:artwork).permit(:title, :image_url, :artist_id)
+        params.require(:artwork).permit(:title, :image_url, :artist_id)
     end
 end
