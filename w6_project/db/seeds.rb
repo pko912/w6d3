@@ -8,10 +8,15 @@
 
 
 
-User.create(name: 'biggie', email: 'smalls_com')
-User.create(name: 'tupac', email: 'shakur_com')
-User.create(name: 'bonnie', email: 'nooooooo_com')
-User.create(name: 'bonnie2', email: 'li_com')   
+User.create(username: 'biggie')
+User.create(username: 'tupac')
+User.create(username: 'bonnie')
+User.create(username: 'bonnie2')   
 
+Artwork.create(title: 'kyle', image_url: 'kylekyle.kyle', artist_id: 1)
+Artwork.create(title: 'amin', image_url: 'cats.ilovecats', artist_id: 3)
+Artwork.create(title: 'sure', image_url: 'nah.maybe', artist_id: 2)
 
-#save_bonnie
+ArtworkShare.create(artwork_id: 1, viewer_id: 1)
+ArtworkShare.create(artwork_id: 1, viewer_id: 4)
+ArtworkShare.create(artwork_id: 2, viewer_id: 1)
