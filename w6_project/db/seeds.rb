@@ -11,4 +11,7 @@
 User.create(name: 'biggie', email: 'smalls_com')
 User.create(name: 'tupac', email: 'shakur_com')
 User.create(name: 'bonnie', email: 'nooooooo_com')
-User.create(name: 'bonnie2', email: 'li_com')
+User.create(name: 'bonnie2', email: 'li_com')   
+
+
+#save_bonnie
