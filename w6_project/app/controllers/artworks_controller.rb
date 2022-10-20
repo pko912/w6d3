@@ -1,8 +1,12 @@
 class ArtworksController < ApplicationController
 
     def index
-        @artworks = Artwork.artworks_for_user_id(params[:user_id])
-        render json: @artworks
+        if params[:user_id]
+            @artworks = Artwork.artworks_for_user_id(params[:user_id])
+        else
+            @artworks = Artwork.all
+        end
+            render json: @artworks
     end
 
     def show
@@ -39,4 +43,5 @@ class ArtworksController < ApplicationController
     def artwork_params
         params.require(:artwork).permit(:title, :image_url, :artist_id)
     end
+
 end
