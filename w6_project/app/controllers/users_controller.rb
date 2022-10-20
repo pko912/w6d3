@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
     def index
-        if user_params 
-            @users = User.find_by(user_params)
+        if user_params
+            @users = User.users_for_username(user_params[:username])
         else
             @users = User.all
         end

@@ -34,4 +34,8 @@ class User < ApplicationRecord
         through: :artwork_shares,
         source: :artwork
     
+    def self.users_for_username(username)
+        User.where('username LIKE ?', "%#{username}%")
+    end
+
 end
