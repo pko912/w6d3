@@ -15,4 +15,12 @@ class Comment < ApplicationRecord
 
     belongs_to :artwork
 
+    def self.comments_for_user_id(user_id)
+        Comment.where(author_id: user_id)
+    end
+
+    def self.comments_for_artwork_id(artwork_id)
+        Comment.where(artwork_id: artwork_id)
+    end
+
 end
