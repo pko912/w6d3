@@ -13,17 +13,23 @@ class Artwork < ApplicationRecord
     validates :title, :image_url, presence: true
     validates :title, uniqueness: { scope: :artist_id, message: "User already owns artwork"}
 
-    belongs_to :artist, 
+    # belongs_to :artist, 
         # primary_key: :id,
         # foreign_key: :artist_id,
-        class_name: :User
-
-    has_many :artwork_shares,
+        # class_name: :User
+        
+    # has_many :artwork_shares,
         # primary_key: :id,
         # foreign_key: :artwork_id,
         # class_name: :ArtworkShare,
-        dependent: :destroy,
-        inverse_of: :artwork
+        # dependent: :destroy,
+        # inverse_of: :artwork
+        
+    belongs_to :artist, class_name: :User
+
+    has_many :artwork_shares, dependent: :destroy, inverse_of: :artwork
+
+    has_many :comments, dependent: :destroy, inverse_of: :artwork
 
     has_many :shared_viewers,
         through: :artwork_shares,
