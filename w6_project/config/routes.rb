@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/comments', to: 'comments#index'
   get '/artworks/:artwork_id/comments', to: 'comments#index'
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:index, :create, :destroy]
 
 
 end

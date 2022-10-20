@@ -12,14 +12,16 @@ class CommentsController < ApplicationController
     def destroy
         @comment = Comment.find(params[:id])
         @comment.destroy
+        redirect_to comments_url
     end
 
     def index
-
         if params[:user_id]
             @comments = Comment.comments_for_user_id(params[:user_id])
         elsif params[:artwork_id]
             @comments = Comment.comments_for_artwork_id(params[:artwork_id])
+        else
+            @comments = Comment.all
         end
         render json: @comments
     end
