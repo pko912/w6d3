@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :destroy, :index, :show, :update]
   
   get '/users/:user_id/artworks', to: 'artworks#index'
-  resources :artworks, only: [:create, :destroy, :show, :update]
+  resources :artworks, only: [:create, :destroy, :index, :show, :update]
   
   resources :artwork_shares, only: [:create, :destroy]
 
